@@ -13,7 +13,7 @@ igbinaryVersion="$(
 )"
 
 imagickVersion="$(
-	git ls-remote --tags https://github.com/mkoppanen/imagick.git |
+	git ls-remote --tags https://github.com/imagick/imagick.git |
 		cut -d/ -f3 |
 		grep -viE '[a-z]' |
 		tr -d '^{}' |
