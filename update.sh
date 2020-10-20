@@ -3,6 +3,15 @@ set -euo pipefail
 
 cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
+igbinaryVersion="$(
+	git ls-remote --tags https://github.com/igbinary/igbinary.git |
+		cut -d/ -f3 |
+		grep -viE '[a-z]' |
+		tr -d '^{}' |
+		sort -V |
+		tail -1
+)"
+
 imagickVersion="$(
 	git ls-remote --tags https://github.com/mkoppanen/imagick.git |
 		cut -d/ -f3 |
@@ -40,6 +49,7 @@ declare -A extras=(
 )
 
 declare -A peclVersions=(
+	[igbinary]=$igbinaryVersion
 	[imagick]=$imagickVersion
 	[redis]=$redisVersion
 )
@@ -74,6 +84,7 @@ for phpVersion in ${phpVersions[@]}; do
 		sed -r \
 			-e "s!%%CMD%%!$cmd!g" \
 			-e "s!%%CRONTAB_INT%%!${crontabInts[default]}!g" \
+			-e "s!%%IGBINARY_VERSION%%!${peclVersions[igbinary]}!g" \
 			-e "s!%%IMAGICK_VERSION%%!${peclVersions[imagick]}!g" \
 			-e "s!%%PHP_VERSION%%!$phpVersion!g" \
 			-e "s!%%REDIS_VERSION%%!${peclVersions[redis]}!g" \

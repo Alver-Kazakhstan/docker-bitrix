@@ -39,10 +39,12 @@ RUN set -ex; \
 	; \
 	\
 	# https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=43&LESSON_ID=2795
+	pecl install igbinary-3.1.6; \
 	pecl install imagick-3.4.4; \
 	pecl install redis-5.3.1; \
 	\
 	docker-php-ext-enable \
+	igbinary \
 	imagick \
 	opcache \
 	redis \
