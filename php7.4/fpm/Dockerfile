@@ -73,7 +73,9 @@ RUN set -ex; \
 # https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=135&LESSON_ID=2593
 RUN set -ex; \
 	\
+	echo 'allow_url_fopen = "0"' > /usr/local/etc/php/conf.d/docker-php-allow-url-fopen.ini; \
 	echo 'date.timezone = "Europe/Moscow"' > /usr/local/etc/php/conf.d/docker-php-date.ini; \
+	echo 'display_errors = "0"' > /usr/local/etc/php/conf.d/docker-php-display-errors.ini; \
 	echo 'max_execution_time = "300"' > /usr/local/etc/php/conf.d/docker-php-max-execution-time.ini; \
 	echo 'max_file_uploads = "100"' > /usr/local/etc/php/conf.d/docker-php-max-file-uploads.ini; \
 	echo 'max_input_vars = "10000"' > /usr/local/etc/php/conf.d/docker-php-max-input-vars.ini; \
@@ -87,6 +89,7 @@ RUN set -ex; \
 		echo 'opcache.revalidate_freq = "0"'; \
 	} > /usr/local/etc/php/conf.d/docker-php-opcache.ini; \
 	echo 'post_max_size = "1024M"' > /usr/local/etc/php/conf.d/docker-php-post-max-size.ini; \
+	echo 'request_order = "GP"' > /usr/local/etc/php/conf.d/docker-php-request-order.ini; \
 	echo 'sendmail_path = "/usr/bin/msmtp -t"' > /usr/local/etc/php/conf.d/docker-php-sendmail.ini; \
 	echo 'upload_max_filesize = "1024M"' > /usr/local/etc/php/conf.d/docker-php-upload-max-filesize.ini
 
