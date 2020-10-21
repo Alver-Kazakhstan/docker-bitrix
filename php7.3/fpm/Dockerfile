@@ -20,6 +20,7 @@ RUN set -ex; \
 	\
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
+		libcurl4-openssl-dev \
 		libfreetype6-dev \
 		libjpeg-dev \
 		libmagickwand-dev \
