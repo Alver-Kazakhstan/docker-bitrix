@@ -44,7 +44,7 @@ RUN set -ex; \
 	curl -fsSL https://github.com/imagick/imagick/archive/3.4.4.tar.gz | tar xvz -C /usr/src/php/ext/imagick --strip 1; \
 	\
 	docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp; \
-	docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ ; \
+	docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/; \
 
 	docker-php-ext-install -j "$(nproc)" \
 		bcmath \
@@ -78,7 +78,7 @@ RUN set -ex; \
 RUN set -ex; \
 	\
 	echo 'allow_url_fopen = "0"' > /usr/local/etc/php/conf.d/docker-php-allow-url-fopen.ini; \
-	echo 'date.timezone = "Europe/Moscow"' > /usr/local/etc/php/conf.d/docker-php-date.ini; \
+	echo 'date.timezone = "Asia/Almaty"' > /usr/local/etc/php/conf.d/docker-php-date.ini; \
 	echo 'display_errors = "1"' > /usr/local/etc/php/conf.d/docker-php-display-errors.ini; \
 	echo 'max_execution_time = "300"' > /usr/local/etc/php/conf.d/docker-php-max-execution-time.ini; \
 	echo 'max_file_uploads = "100"' > /usr/local/etc/php/conf.d/docker-php-max-file-uploads.ini; \

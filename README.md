@@ -21,3 +21,9 @@ To use an external SMTP server, you have to provide the connection details. To c
 - `-e SMTP_TLS_STARTTLS=...`
 
 Check the [msmtp man page](https://manpages.debian.org/testing/msmtp/msmtp.1.en.html#CONFIGURATION_FILES) for details.
+
+
+### Clone repo
+```
+git clone git@github.com:Alver-Kazakhstan/docker-bitrix.git alver-kazakhstan/docker-bitrix
+```
